@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docs-converter"
+version = "0.4.0"
+authors = [
+  { name="Pranav Jadhav", email="jadhavpranav8@gmail.com" },
+]
+description = "A simple CLI for converting document formats."
+
+readme = "README.md"
+
+requires-python = ">=3.7"
+dependencies = [
+    "typer[all]",
+    "pypandoc-binary",
+    "weasyprint",
+]
+
+[project.scripts]
+docs-converter = "docs_converter.__main__:app"
+
+[tool.setuptools]
+packages = ["docs_converter"]
