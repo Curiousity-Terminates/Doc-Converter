@@ -42,7 +42,6 @@ def convert(
         typer.echo(f"Please choose from the supported formats: {', '.join(SUPPORTED_FORMATS)}")
         raise typer.Exit(code=1)
 
-    # If no output file is specified, create it automatically
     if not output_file:
         output_file = source_file.with_suffix(f".{to_format.lower()}")
 
@@ -60,11 +59,11 @@ def convert(
             extra_args=extra_args
         )
         typer.secho(
-            f"✅ Successfully converted file to '{output_file}'",
+            f"Successfully converted file to '{output_file}'",
             fg=typer.colors.GREEN
         )
     except Exception as e:
-        typer.secho(f"🔥 Conversion failed: {e}", fg=typer.colors.RED)
+        typer.secho(f"Conversion failed: {e}", fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
 if __name__ == "__main__":
